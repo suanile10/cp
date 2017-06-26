@@ -24,7 +24,7 @@
 <?php if(isset($_SESSION['success'])) {?>
 <div class="alert alert-success"><?php echo $_SESSION['success'];?></div>
 <?php } ?>
-   <form action="" method="POST"> 
+   <form action="<?php echo base_url();?>register/register" method="POST"> 
     <div class="col-lg-8 col-offset-2">
       <div class = "form-group" >
        <label for = "username" > Username: </label>

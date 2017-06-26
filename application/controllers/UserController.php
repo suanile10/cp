@@ -1,10 +1,15 @@
 <?php
 class UserController extends CI_Controller
 {
+	public function index()
+	{
+		$this->load->view('registerUserForm');
+	}
+	
 	public function login()
 	{
-		$this->form_validation->set_rules('txtUsername', 'txtUsername', 'required');
-		$this->form_validation->set_rules('txtPassword', 'txtPassword', 'required');
+		$this->form_validation->set_rules('txtUsername', 'username', 'required');
+		$this->form_validation->set_rules('txtPassword', 'password', 'required');
 
 		if ($this->form_validation->run() == TRUE)
 		{
@@ -62,10 +67,10 @@ class UserController extends CI_Controller
 			// if form validation true 
 			if ($this->form_validation->run()==TRUE)
 			{
-				echo 'form calidated';
+				echo 'form alidated';	
 				//add user in database
 
-				$data = array (
+				/*$data = array (
 						'username' => $_POST['txtUsername'],
 						'password' => $_POST['txtPassword'],
 						'email_address' => $_POST['txtEmail'],
@@ -75,15 +80,18 @@ class UserController extends CI_Controller
 						'address' => $_POST['txtAddress']
 
 					);
-
-				$this->db->insert('tblusers',$data);
+*/
+				/*$this->db->insert('tblusers',$data);
 				$this->session->set_flashdata("success","You are now registered.");
-				redirect("UserController/register");
+				redirect("UserController/register");*/
+
+				$this->load->model('user');
+				$this->user->registerUser($data);
 			}
 		}
 
 		//load view
-		$this->load->view('register');
+		//$this->load->view('register');
 	}
 
 	public function __construct()
