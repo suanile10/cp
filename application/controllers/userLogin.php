@@ -18,5 +18,22 @@
 			$this->form_validation->set_rules('txtPassword', 'password', 'required');
 			
 		}
+
+		public function Login()
+		{
+			$username=$this->input->POST("txtUsername");
+			$pas=$this->input->POST("txtPassword");
+			
+			$this->load->model("users");
+			$Login=$this->users->Login($username,$pas);
+			if($Login)
+			{
+				echo "login";
+			}
+			else
+			{
+				echo " not login";
+			}
+		}
 	}
 ?>

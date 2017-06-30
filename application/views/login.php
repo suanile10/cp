@@ -7,9 +7,9 @@
     <h1>Login Page!</h1>
     <p>Fill the details.</p>
 
-   <form action="" method="POST"> 
+   <form action="<?php echo base_url();?>UserLogin/Login" method="POST"> 
       <table>
-      <tr>
+      <tr>  
         <td>Username</td>
         <td>:</td>
         <td><input  name="txtUsername" id="username" type="text"></td>

@@ -24,7 +24,7 @@
 <?php if(isset($_SESSION['success'])) {?>
 <div class="alert alert-success"><?php echo $_SESSION['success'];?></div>
 <?php } ?>
-   <form action="<?php echo base_url();?>register" method="POST"> 
+   <form action="<?php echo base_url();?>register/userRegister" method="POST"> 
     <div class="col-lg-8 col-offset-2">
       <div class = "form-group" >
        <label for = "username" > Username: </label>
@@ -68,7 +68,7 @@
       </div>
 
       <div class="text-center">
-        <button class="btn btn-primary" name="btnRegister"> Register</button>
+        <button  class="btn btn-primary" name="btnRegister"> Register</button>
       </div>
     </div>
     </form>
