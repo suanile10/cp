@@ -26,6 +26,23 @@ class Register extends CI_Controller
 			echo 'Sorry.Try again.';
 		}
 	}
+
+	public function userLogin()
+		{
+			$username=$this->input->POST("txtUsername");
+			$pass=$this->input->POST("txtPassword");
+			
+			$this->load->model("users");
+			$Login=$this->users->userLoginh($username,$pass);
+			if($Login)
+			{
+				echo "login";
+			}
+			else
+			{
+				echo " not login";
+			}
+		}
 }
 	
  ?>

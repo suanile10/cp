@@ -15,7 +15,7 @@ class Users extends CI_Model
 			return $this->db->insert("tblusers",$user);
 		}
 
-	public function Login($username,$pass)
+	public function userLoginh($username,$pass)
 	{
 		$sql=$this->db->where(['username'=>$username,'password'=>$pass])->get('tblusers');
 		if($sql->num_rows()>=1)
@@ -23,11 +23,26 @@ class Users extends CI_Model
 			return $sql->row()->user_id;
 			echo 'hello '.$username;
 		}
-		else
+		
 		{
 			echo "Either Username or password is wrong. ";
 		}
+
+		/*$this->db->where('username',$this->input->post('txtUsername'));
+
+		$this->db->where('password',$this->input->post('txtPassword'));
+		$query = $this->db->get('tblusers');
+
+		if ($query->num_rows()==1)
+		{
+			echo "hello";
+		}
+		else
+		{
+			echo "bye";
+		}*/
 	}
+
 }
 
 ?>

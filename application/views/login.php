@@ -7,7 +7,7 @@
     <h1>Login Page!</h1>
     <p>Fill the details.</p>
 
-   <form action="<?php echo base_url();?>UserLogin/Login" method="POST"> 
+   <form action="<?php echo base_url();?>Register/userLogin" method="POST"> 
       <table>
       <tr>  
         <td>Username</td>
@@ -17,7 +17,7 @@
       <tr>
         <td>Password</td>
         <td>:</td>
-        <td><input  name="txtUsername" id="password" type="password"></td>
+        <td><input  name="txtPassword" id="password" type="password"></td>
       </tr>
        <tr>
         <td><input  name="btnLogin" value="Login"  type="submit"></td>

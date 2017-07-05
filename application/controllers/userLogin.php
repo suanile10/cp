@@ -15,25 +15,31 @@
 			$this->load->library('form_validation');
 
 			$this->form_validation->set_rules('txtUsername', 'username', 'required');
-			$this->form_validation->set_rules('txtPassword', 'password', 'required');
+			$this->form_validation->set_rules('txtPassword', 'password', 'required|md5');
 			
-		}
-
-		public function Login()
-		{
-			$username=$this->input->POST("txtUsername");
-			$pas=$this->input->POST("txtPassword");
-			
-			$this->load->model("users");
-			$Login=$this->users->Login($username,$pas);
-			if($Login)
+			if ($this->form_validation->run())
 			{
-				echo "login";
+				echo "ran";
 			}
 			else
 			{
-				echo " not login";
+				$this->load->view('login');
 			}
 		}
+
+		public function Login(){
+		$username=$this->input->POST("txtUsername");
+		$pass=$this->input->POST("txtPassword");
+		
+		$this->load->model("users");
+		$Login=$this->users->Login($username,$pass);
+		if($Login){
+				 	echo "login";
+		}
+		else{
+
+			echo " not login";
+		}
+	}
 	}
 ?>
